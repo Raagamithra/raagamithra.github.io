@@ -2,98 +2,226 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Raaga Mithra | Portfolio</title>
+  <title>R. Raagamithra | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f6f8;
-      color: #333;
-    }
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 20px;
-    }
-    h2 {
+      font-family: "Segoe UI", sans-serif;
+      background: #f3f4f6;
       color: #1f2937;
     }
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      animation: fadeIn 1.2s ease-in;
     }
-    footer {
+
+    /* LEFT */
+    .left {
+      background: #111827;
+      color: white;
+      padding: 30px;
+    }
+
+    .left img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: auto;
+      border: 4px solid #2563eb;
+      animation: slideUp 1s ease;
+    }
+
+    .left h2 {
       text-align: center;
-      padding: 20px;
-      background: #e5e7eb;
+      margin: 15px 0 5px;
     }
-    a {
+
+    .section-title {
+      margin-top: 25px;
+      font-weight: bold;
+      border-bottom: 1px solid #374151;
+      padding-bottom: 5px;
+    }
+
+    .left p, .left li {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .left li i {
+      color: #60a5fa;
+      margin-right: 8px;
+    }
+
+    /* RIGHT */
+    .right {
+      padding: 40px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      animation: slideUp 1s ease;
+    }
+
+    .tagline {
       color: #2563eb;
-      text-decoration: none;
+      font-weight: 600;
+      margin: 10px 0 30px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .card {
+      margin-bottom: 25px;
+      animation: slideUp 1.1s ease;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h3 i {
+      color: #2563eb;
+    }
+
+    .card p, .card li {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Raaga Mithra</h1>
-  <p>Aspiring Software Developer | UI/UX Designer | Data Analytics Enthusiast</p>
-</header>
+<div class="container">
 
-<section>
-  <h2>About Me</h2>
-  <div class="card">
-    <p>
-      I am a highly motivated computer science student with a strong foundation in
-      programming and problem-solving. Along with software development, I have
-      hands-on knowledge of UI/UX design and data analytics. I also possess strong
-      leadership and communication skills.
-    </p>
-  </div>
+  <!-- LEFT -->
+  <div class="left">
+    <img src="profile.jpg" alt="Raagamithra">
 
-  <h2>Skills</h2>
-  <div class="card">
+    <h2>R. Raagamithra</h2>
+
+    <div class="section-title">CONTACT</div>
+    <p><i class="fa-solid fa-phone"></i> +91 8610272915</p>
+    <p><i class="fa-solid fa-envelope"></i> raagamithra3@gmail.com</p>
+    <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
+
+    <div class="section-title">SKILLS</div>
     <ul>
-      <li>Programming: Python, Java, C++</li>
-      <li>Web: HTML, CSS</li>
-      <li>UI/UX Design: Figma, Canva</li>
-      <li>Data Analytics: Excel, SQL (basic)</li>
-      <li>Soft Skills: Leadership, Communication</li>
+      <li><i class="fa-solid fa-users"></i> Leadership</li>
+      <li><i class="fa-solid fa-comments"></i> Communication</li>
+      <li><i class="fa-solid fa-layer-group"></i> UI/UX Designing</li>
+      <li><i class="fa-solid fa-brain"></i> Problem Solving</li>
+      <li><i class="fa-solid fa-clock"></i> Time Management</li>
+    </ul>
+
+    <div class="section-title">TOOLS</div>
+    <ul>
+      <li><i class="fa-brands fa-figma"></i> Figma</li>
+      <li><i class="fa-solid fa-pen-nib"></i> Adobe XD</li>
+      <li><i class="fa-solid fa-palette"></i> Canva</li>
+    </ul>
+
+    <div class="section-title">LANGUAGES</div>
+    <ul>
+      <li>English (Fluent)</li>
+      <li>Tamil (Fluent)</li>
+      <li>Malayalam (Basic)</li>
+      <li>Hindi (Intermediate)</li>
     </ul>
   </div>
 
-  <h2>Projects</h2>
-  <div class="card">
-    <strong>Bio-Sponges from Temple Flower Waste</strong>
-    <p>Eco-friendly project converting floral waste into biodegradable sponges.</p>
+  <!-- RIGHT -->
+  <div class="right">
+    <h1>R. Raagamithra</h1>
+    <p class="tagline">
+      <i class="fa-solid fa-laptop-code"></i> Aspiring IT Professional |
+      <i class="fa-solid fa-pen-nib"></i> UI/UX Designer |
+      <i class="fa-solid fa-chart-line"></i> Data Analytics
+    </p>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-user"></i> Profile</h3>
+      <p>
+        Ambitious and aspiring IT professional with a strong drive to innovate,
+        lead, and create impact through technology. Experienced in UI/UX design,
+        Python, and problem-solving, with excellent leadership and collaboration skills.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-certificate"></i> Certifications & Internships</h3>
+      <ul>
+        <li>Cisco Networking Academy – Python Essentials</li>
+        <li>IBM – Data Science Certification</li>
+        <li>Cognifyz Technologies – UI/UX Designing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-diagram-project"></i> Projects</h3>
+      <ul>
+        <li>Movie Data Analysis Project</li>
+        <li>College Sign-in Form UI</li>
+        <li>Weather App UI</li>
+        <li>Landing Page Design</li>
+        <li>Mobile App UI Design</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+      <p>
+        <strong>B.E – Computer Science Engineering</strong><br>
+        Easwari Engineering College, Chennai<br>
+        CGPA: 8.59 / 10
+      </p>
+    </div>
   </div>
 
-  <div class="card">
-    <strong>Portfolio Website</strong>
-    <p>Personal portfolio built using HTML and hosted on GitHub Pages.</p>
-  </div>
-
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: yourmail@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
-    <p>LinkedIn: <a href="#">Add your LinkedIn</a></p>
-  </div>
-</section>
-
-<footer>
-  © 2025 Raaga Mithra
-</footer>
+</div>
 
 </body>
 </html>
