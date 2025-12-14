@@ -9,79 +9,48 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===== RESET ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 body { font-family: "Segoe UI", sans-serif; color: #fff; background: #0f0f0f; overflow-x: hidden; }
 
-/* ===== TECH BACKGROUND ===== */
-#tech-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: #0f0f0f;
-}
+#tech-bg { position: fixed; inset: 0; z-index: -1; background: #0f0f0f; }
 canvas { display: block; width: 100%; height: 100%; }
 
-/* ===== NAVBAR ===== */
 nav {
-  position: sticky;
-  top: 0;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(10px);
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
+  position: sticky; top: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
+  padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100;
 }
 nav a { color: #60a5fa; margin-left: 20px; text-decoration: none; font-weight: 500; display: flex; align-items: center; }
 nav a i { margin-right: 8px; }
 nav a:hover { color: #fff; }
 
-/* ===== HERO ===== */
 .hero { text-align: center; padding: 120px 20px 60px; }
 .hero img { width: 180px; height: 180px; border-radius: 12px; border: 4px solid #60a5fa; margin-bottom: 20px; }
 .hero h1 { font-size: 42px; margin-bottom: 10px; }
 .hero p { color: #bfdbfe; font-size: 18px; max-width: 700px; margin: auto; line-height: 1.6; }
 
-/* ===== SECTION ===== */
 section { padding: 80px 20px; max-width: 1100px; margin: auto; opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
 section.show { opacity:1; transform: translateY(0); }
 
-/* ===== CARDS ===== */
 .card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 30px; margin-top: 30px; }
 .card h2 { color: #60a5fa; margin-bottom: 15px; }
 .card p, .card li { color: #c7d2fe; }
 
-/* ===== GRID ===== */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .grid p, .grid li { background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; }
 
-/* ===== PROJECT CARDS ===== */
-.project-card {
-  background: rgba(255,255,255,0.05);
-  padding: 20px;
-  border-radius: 16px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
-}
+.project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; margin-bottom: 15px; cursor: pointer; transition: transform 0.3s, background 0.3s; }
 .project-card:hover { transform: translateY(-6px); background: #60a5fa33; }
 .project-detail { display:none; margin-top:10px; padding:15px; background:#111; border-radius:12px; }
 
-/* ===== FOOTER ===== */
 footer { text-align:center; padding:30px; color:#c7d2fe; }
 
-/* ===== DARK MODE ===== */
 body.dark { background: #050505; }
 body.dark .card { background: rgba(255,255,255,0.03); }
 body.dark .grid p, body.dark .project-card { background: rgba(255,255,255,0.02); }
 
-/* ===== BUTTONS ===== */
 button { cursor:pointer; background:#60a5fa; border:none; padding:8px 12px; border-radius:8px; color:#fff; transition:0.3s; }
 button:hover { background:#3b82f6; }
 
-/* ===== ANIMATIONS ===== */
 .show { opacity:1 !important; transform: translateY(0) !important; }
 </style>
 </head>
@@ -89,7 +58,6 @@ button:hover { background:#3b82f6; }
 
 <canvas id="tech-bg"></canvas>
 
-<!-- NAVBAR -->
 <nav>
   <strong>Raagamithra</strong>
   <div>
@@ -101,27 +69,24 @@ button:hover { background:#3b82f6; }
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="home" class="hero">
   <img src="profile.jpg">
   <h1>R. Raagamithra</h1>
   <p>
-    I am an aspiring IT professional with a strong passion for UI/UX design, data analytics, and web development. My goal is to create innovative digital experiences that solve real-world problems and enhance user satisfaction. I also possess leadership skills, excellent communication, and a strong foundation in problem-solving.
+    An ambitious and aspiring IT professional, currently pursuing engineering with a strong drive to innovate, lead, and create impact through technology. Equipped with foundational expertise in UI/UX, Java, Python, and C, I am passionate about exploring how digital solutions can transform businesses and improve lives. As Joint Secretary of the Rotaract Club of SRM Easwari Engineering College (2025–26), I have demonstrated leadership, organizational management, and collaborative teamwork, successfully contributing to events and initiatives that promote growth and service. A proactive learner with a vision to combine technical knowledge, leadership, and creativity to deliver excellence, I aim to grow into a dynamic professional who makes a meaningful contribution to both industry and society.
   </p>
   <p><a href="Raagamithra_Resume.pdf" download style="color:#60a5fa; text-decoration:none; font-weight:500;">
     <i class="fa-solid fa-download"></i> Download Resume
   </a></p>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="card">
   <h2><i class="fa-solid fa-user"></i> About Me</h2>
   <p>
-    [Insert detailed About Me from resume here — include academic background, achievements, interests, and personal story.]
+    An ambitious and aspiring IT professional, currently pursuing engineering with a strong drive to innovate, lead, and create impact through technology. Equipped with foundational expertise in UI/UX, Java, Python, and C, I am passionate about exploring how digital solutions can transform businesses and improve lives. As Joint Secretary of the Rotaract Club of SRM Easwari Engineering College (2025–26), I have demonstrated leadership, organizational management, and collaborative teamwork, successfully contributing to events and initiatives that promote growth and service. A proactive learner with a vision to combine technical knowledge, leadership, and creativity to deliver excellence, I aim to grow into a dynamic professional who makes a meaningful contribution to both industry and society.
   </p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="card">
     <h2><i class="fa-solid fa-star"></i> Soft Skills</h2>
@@ -139,129 +104,45 @@ button:hover { background:#3b82f6; }
     <div class="grid">
       <p><i class="fa-brands fa-python"></i> Python</p>
       <p><i class="fa-brands fa-java"></i> Java</p>
+      <p><i class="fa-solid fa-code"></i> C Language</p>
       <p><i class="fa-solid fa-database"></i> SQL</p>
-      <p><i class="fa-solid fa-code"></i> HTML / CSS / JS</p>
       <p><i class="fa-solid fa-pen-nib"></i> UI/UX Design Tools</p>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="card">
   <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-
   <div class="project-card" onclick="toggleDetail('proj1')">
     <i class="fa-solid fa-film"></i> Movie Data Analysis
     <div class="project-detail" id="proj1">
       Analysis of movie datasets using Python to find trends, ratings, and insights. Tools: Python, Pandas, Matplotlib.
     </div>
   </div>
-
   <div class="project-card" onclick="toggleDetail('proj2')">
     <i class="fa-solid fa-cloud-sun"></i> Weather App UI Design
     <div class="project-detail" id="proj2">
       Designed an interactive weather app UI prototype. Tools: Figma, Adobe XD.
     </div>
   </div>
-
   <div class="project-card" onclick="toggleDetail('proj3')">
     <i class="fa-solid fa-id-card"></i> College Sign-In Form UI
     <div class="project-detail" id="proj3">
       Built a clean and intuitive sign-in form UI for college events. Tools: Figma, Canva.
     </div>
   </div>
-
   <div class="project-card" onclick="toggleDetail('proj4')">
     <i class="fa-solid fa-mobile-screen"></i> Mobile App UI Design
     <div class="project-detail" id="proj4">
       Mobile app interface design with user-friendly navigation. Tools: Figma, Wireframing.
     </div>
   </div>
-
   <div class="project-card" onclick="toggleDetail('proj5')">
     <i class="fa-solid fa-leaf"></i> Bio-Sponges from Temple Waste Flowers
     <div class="project-detail" id="proj5">
       Eco-friendly project converting temple flower waste into biodegradable sponges. Tools: Research, Experimentation.
     </div>
   </div>
-
   <div class="project-card" onclick="toggleDetail('proj6')">
     <i class="fa-solid fa-briefcase"></i> Internship
-    <div class="project-detail" id="proj6">
-      Currently working as a Green Intern, focusing on sustainable tech practices and UI/UX projects.
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="card">
-  <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
-  <p><i class="fa-solid fa-envelope"></i> raagamithra3@gmail.com</p>
-  <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
-  <p><i class="fa-brands fa-github"></i> <a href="https://github.com/raagamithra" style="color:#60a5fa;text-decoration:none;">GitHub</a></p>
-  <p><i class="fa-brands fa-linkedin"></i> <a href="#" style="color:#60a5fa;text-decoration:none;">LinkedIn</a></p>
-</section>
-
-<footer>
-  © 2025 Raagamithra · UI/UX & Tech Portfolio
-</footer>
-
-<script>
-// ===== SCROLL ANIMATION =====
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('show');
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('section, .project-card').forEach(el => observer.observe(el));
-
-// ===== PROJECT TOGGLE =====
-function toggleDetail(id){
-  const elem = document.getElementById(id);
-  elem.style.display = elem.style.display === 'block' ? 'none' : 'block';
-}
-
-// ===== TECH BACKGROUND CANVAS =====
-const canvas = document.getElementById('tech-bg');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-for(let i=0;i<150;i++){
-  particles.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    r: Math.random()*2+1,
-    vx: (Math.random()-0.5)*0.5,
-    vy: (Math.random()-0.5)*0.5
-  });
-}
-
-function animate(){
-  ctx.fillStyle = '#0f0f0f';
-  ctx.fillRect(0,0,canvas.width,canvas.height);
-  ctx.strokeStyle = '#60a5fa33';
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle = '#60a5fa';
-    ctx.fill();
-    ctx.closePath();
-    p.x += p.vx;
-    p.y += p.vy;
-    if(p.x>canvas.width)p.x=0;
-    if(p.x<0)p.x=canvas.width;
-    if(p.y>canvas.height)p.y=0;
-    if(p.y<0)p.y=canvas.height;
-  });
-  requestAnimationFrame(animate);
-}
-animate();
-
-// ===== RESIZE =====
-window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
-</script>
-
-</body>
-</html>
+    <div class
