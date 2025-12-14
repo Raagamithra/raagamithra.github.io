@@ -2,62 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Raagamithra | UI/UX & Tech Portfolio</title>
+<title>Raagamithra | Professional Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-body { font-family: "Segoe UI", sans-serif; color: #fff; background: #0f0f0f; overflow-x: hidden; }
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+body { font-family:"Segoe UI", sans-serif; color:#fff; background:#0f0f0f; overflow-x:hidden; }
+#tech-bg { position:fixed; inset:0; z-index:-1; background:#0f0f0f; }
+canvas { display:block; width:100%; height:100%; }
 
-#tech-bg { position: fixed; inset: 0; z-index: -1; background: #0f0f0f; }
-canvas { display: block; width: 100%; height: 100%; }
+/* NAVBAR */
+nav { position:sticky; top:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px);
+  padding:15px 40px; display:flex; justify-content:space-between; align-items:center; z-index:100; }
+nav a { color:#60a5fa; margin-left:20px; text-decoration:none; font-weight:500; display:flex; align-items:center; }
+nav a i { margin-right:8px; }
+nav a:hover { color:#fff; }
 
-nav {
-  position: sticky; top: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
-  padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 100;
-}
-nav a { color: #60a5fa; margin-left: 20px; text-decoration: none; font-weight: 500; display: flex; align-items: center; }
-nav a i { margin-right: 8px; }
-nav a:hover { color: #fff; }
+/* HERO */
+.hero { text-align:center; padding:120px 20px 60px; }
+.hero img { width:180px; height:180px; border-radius:12px; border:4px solid #60a5fa; margin-bottom:20px; }
+.hero h1 { font-size:42px; margin-bottom:10px; }
+.hero p { color:#bfdbfe; font-size:18px; max-width:700px; margin:auto; line-height:1.6; }
 
-.hero { text-align: center; padding: 120px 20px 60px; }
-.hero img { width: 180px; height: 180px; border-radius: 12px; border: 4px solid #60a5fa; margin-bottom: 20px; }
-.hero h1 { font-size: 42px; margin-bottom: 10px; }
-.hero p { color: #bfdbfe; font-size: 18px; max-width: 700px; margin: auto; line-height: 1.6; }
+/* SECTION */
+section { padding:80px 20px; max-width:1100px; margin:auto; opacity:0; transform:translateY(40px); transition:all 0.8s ease; }
+section.show { opacity:1; transform:translateY(0); }
 
-section { padding: 80px 20px; max-width: 1100px; margin: auto; opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
-section.show { opacity:1; transform: translateY(0); }
+/* CARDS */
+.card { background:rgba(255,255,255,0.05); backdrop-filter:blur(10px); border-radius:20px; padding:30px; margin-top:30px; }
+.card h2 { color:#60a5fa; margin-bottom:15px; }
+.card p, .card li { color:#c7d2fe; }
 
-.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 30px; margin-top: 30px; }
-.card h2 { color: #60a5fa; margin-bottom: 15px; }
-.card p, .card li { color: #c7d2fe; }
+/* GRID */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+.grid p, .grid li { background:rgba(255,255,255,0.05); padding:12px 15px; border-radius:12px; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.grid p, .grid li { background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; }
+/* PROJECTS / CERTIFICATES CARDS */
+.expand-card { background:rgba(255,255,255,0.05); padding:20px; border-radius:16px; margin-bottom:15px; cursor:pointer; transition:transform 0.3s, background 0.3s; }
+.expand-card:hover { transform:translateY(-6px); background:#60a5fa33; }
+.expand-detail { display:none; margin-top:10px; padding:15px; background:#111; border-radius:12px; }
 
-.project-card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; margin-bottom: 15px; cursor: pointer; transition: transform 0.3s, background 0.3s; }
-.project-card:hover { transform: translateY(-6px); background: #60a5fa33; }
-.project-detail { display:none; margin-top:10px; padding:15px; background:#111; border-radius:12px; }
-
+/* FOOTER */
 footer { text-align:center; padding:30px; color:#c7d2fe; }
 
-body.dark { background: #050505; }
-body.dark .card { background: rgba(255,255,255,0.03); }
-body.dark .grid p, body.dark .project-card { background: rgba(255,255,255,0.02); }
-
+/* BUTTON */
 button { cursor:pointer; background:#60a5fa; border:none; padding:8px 12px; border-radius:8px; color:#fff; transition:0.3s; }
 button:hover { background:#3b82f6; }
 
-.show { opacity:1 !important; transform: translateY(0) !important; }
+.show { opacity:1 !important; transform:translateY(0) !important; }
+
 </style>
 </head>
 <body>
 
 <canvas id="tech-bg"></canvas>
 
+<!-- NAVBAR -->
 <nav>
   <strong>Raagamithra</strong>
   <div>
@@ -65,21 +66,22 @@ button:hover { background:#3b82f6; }
     <a href="#about"><i class="fa-solid fa-user"></i>About</a>
     <a href="#skills"><i class="fa-solid fa-star"></i>Skills</a>
     <a href="#projects"><i class="fa-solid fa-diagram-project"></i>Projects</a>
+    <a href="#internship"><i class="fa-solid fa-briefcase"></i>Internship</a>
+    <a href="#certificates"><i class="fa-solid fa-certificate"></i>Certificates</a>
     <a href="#contact"><i class="fa-solid fa-envelope"></i>Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="home" class="hero">
   <img src="profile.jpg">
   <h1>R. Raagamithra</h1>
   <p>
     An ambitious and aspiring IT professional, currently pursuing engineering with a strong drive to innovate, lead, and create impact through technology. Equipped with foundational expertise in UI/UX, Java, Python, and C, I am passionate about exploring how digital solutions can transform businesses and improve lives. As Joint Secretary of the Rotaract Club of SRM Easwari Engineering College (2025–26), I have demonstrated leadership, organizational management, and collaborative teamwork, successfully contributing to events and initiatives that promote growth and service. A proactive learner with a vision to combine technical knowledge, leadership, and creativity to deliver excellence, I aim to grow into a dynamic professional who makes a meaningful contribution to both industry and society.
   </p>
-  <p><a href="Raagamithra_Resume.pdf" download style="color:#60a5fa; text-decoration:none; font-weight:500;">
-    <i class="fa-solid fa-download"></i> Download Resume
-  </a></p>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="card">
   <h2><i class="fa-solid fa-user"></i> About Me</h2>
   <p>
@@ -87,11 +89,11 @@ button:hover { background:#3b82f6; }
   </p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="card">
     <h2><i class="fa-solid fa-star"></i> Soft Skills</h2>
     <div class="grid">
-      <p><i class="fa-solid fa-users"></i> Leadership</p>
       <p><i class="fa-solid fa-comments"></i> Communication</p>
       <p><i class="fa-solid fa-brain"></i> Problem Solving</p>
       <p><i class="fa-solid fa-lightbulb"></i> Creativity</p>
@@ -104,45 +106,114 @@ button:hover { background:#3b82f6; }
     <div class="grid">
       <p><i class="fa-brands fa-python"></i> Python</p>
       <p><i class="fa-brands fa-java"></i> Java</p>
-      <p><i class="fa-solid fa-code"></i> C Language</p>
-      <p><i class="fa-solid fa-database"></i> SQL</p>
-      <p><i class="fa-solid fa-pen-nib"></i> UI/UX Design Tools</p>
+      <p><i class="fa-solid fa-code"></i> SQL</p>
+      <p><i class="fa-solid fa-code"></i> HTML / CSS / C</p>
+      <p><i class="fa-solid fa-pen-nib"></i> UI/UX Design</p>
+      <p><i class="fa-brands fa-figma"></i> Figma</p>
+      <p><i class="fa-solid fa-paintbrush"></i> Canva</p>
+      <p><i class="fa-brands fa-adobe"></i> Adobe</p>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="card">
   <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-  <div class="project-card" onclick="toggleDetail('proj1')">
-    <i class="fa-solid fa-film"></i> Movie Data Analysis
-    <div class="project-detail" id="proj1">
-      Analysis of movie datasets using Python to find trends, ratings, and insights. Tools: Python, Pandas, Matplotlib.
+  <div class="expand-card" onclick="toggleDetail('proj1')"><i class="fa-solid fa-film"></i> Movie Data Analysis
+    <div class="expand-detail" id="proj1">Analysis of movie datasets using Python to find trends, ratings, and insights.</div>
+  </div>
+  <div class="expand-card" onclick="toggleDetail('proj2')"><i class="fa-solid fa-cloud-sun"></i> Weather App UI Design
+    <div class="expand-detail" id="proj2">Designed interactive weather app UI prototype using Figma and Adobe XD.</div>
+  </div>
+  <div class="expand-card" onclick="toggleDetail('proj3')"><i class="fa-solid fa-id-card"></i> College Sign-In Form UI
+    <div class="expand-detail" id="proj3">Clean sign-in form UI for college events using Figma and Canva.</div>
+  </div>
+  <div class="expand-card" onclick="toggleDetail('proj4')"><i class="fa-solid fa-mobile-screen"></i> Mobile App UI Design
+    <div class="expand-detail" id="proj4">Mobile app interface design with user-friendly navigation using Figma.</div>
+  </div>
+  <div class="expand-card" onclick="toggleDetail('proj5')"><i class="fa-solid fa-leaf"></i> Bio-Sponges from Temple Waste Flower
+    <div class="expand-detail" id="proj5">Eco-friendly project converting temple flower waste into biodegradable sponges.</div>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship" class="card">
+  <h2><i class="fa-solid fa-briefcase"></i> Internship</h2>
+  <div class="expand-card" onclick="toggleDetail('intern1')">Green Intern (1M1B, AICTE)
+    <div class="expand-detail" id="intern1">Focus on sustainable tech practices and UI/UX projects.</div>
+  </div>
+  <div class="expand-card" onclick="toggleDetail('intern2')">Java Developer (Fita Academy)
+    <div class="expand-detail" id="intern2">Worked on Java development and small projects during training.</div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="card">
+  <h2><i class="fa-solid fa-certificate"></i> Certificates</h2>
+  
+  <div class="expand-card" onclick="toggleDetail('cert1')">NPTEL Certificate
+    <div class="expand-detail" id="cert1">
+      <img src="nptel_privacy.jpg" alt="NPTEL Certificate" style="width:100%;border-radius:12px;">
     </div>
   </div>
-  <div class="project-card" onclick="toggleDetail('proj2')">
-    <i class="fa-solid fa-cloud-sun"></i> Weather App UI Design
-    <div class="project-detail" id="proj2">
-      Designed an interactive weather app UI prototype. Tools: Figma, Adobe XD.
+  
+  <div class="expand-card" onclick="toggleDetail('cert2')">Cisco Networking
+    <div class="expand-detail" id="cert2">
+      <div class="expand-card" onclick="toggleDetail('subcert1')">Networking Python Essentials
+        <div class="expand-detail" id="subcert1"><img src="cisco_python.jpg" style="width:100%;border-radius:12px;"></div>
+      </div>
+      <div class="expand-card" onclick="toggleDetail('subcert2')">IBM Data Science
+        <div class="expand-detail" id="subcert2"><img src="cisco_ibm.jpg" style="width:100%;border-radius:12px;"></div>
+      </div>
+      <div class="expand-card" onclick="toggleDetail('subcert3')">MongoDB Course
+        <div class="expand-detail" id="subcert3"><img src="cisco_mongodb.jpg" style="width:100%;border-radius:12px;"></div>
+      </div>
+      <div class="expand-card" onclick="toggleDetail('subcert4')">Networking Basics
+        <div class="expand-detail" id="subcert4"><img src="cisco_basics.jpg" style="width:100%;border-radius:12px;"></div>
+      </div>
     </div>
   </div>
-  <div class="project-card" onclick="toggleDetail('proj3')">
-    <i class="fa-solid fa-id-card"></i> College Sign-In Form UI
-    <div class="project-detail" id="proj3">
-      Built a clean and intuitive sign-in form UI for college events. Tools: Figma, Canva.
-    </div>
+  
+  <div class="expand-card" onclick="toggleDetail('cert3')">Cognifyz Certificate
+    <div class="expand-detail" id="cert3"><img src="cognifyz.jpg" style="width:100%;border-radius:12px;"></div>
   </div>
-  <div class="project-card" onclick="toggleDetail('proj4')">
-    <i class="fa-solid fa-mobile-screen"></i> Mobile App UI Design
-    <div class="project-detail" id="proj4">
-      Mobile app interface design with user-friendly navigation. Tools: Figma, Wireframing.
-    </div>
+  
+  <div class="expand-card" onclick="toggleDetail('cert4')">Opportive Data Science & Analytics
+    <div class="expand-detail" id="cert4"><img src="opportive_ds.jpg" style="width:100%;border-radius:12px;"></div>
   </div>
-  <div class="project-card" onclick="toggleDetail('proj5')">
-    <i class="fa-solid fa-leaf"></i> Bio-Sponges from Temple Waste Flowers
-    <div class="project-detail" id="proj5">
-      Eco-friendly project converting temple flower waste into biodegradable sponges. Tools: Research, Experimentation.
-    </div>
-  </div>
-  <div class="project-card" onclick="toggleDetail('proj6')">
-    <i class="fa-solid fa-briefcase"></i> Internship
-    <div class
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="card">
+  <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
+  <p><i class="fa-solid fa-envelope"></i> raagamithra3@gmail.com</p>
+  <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
+  <p><i class="fa-brands fa-github"></i> <a href="https://github.com/raagamithra" style="color:#60a5fa;text-decoration:none;">GitHub</a></p>
+  <p><i class="fa-brands fa-linkedin"></i> <a href="#" style="color:#60a5fa;text-decoration:none;">LinkedIn</a></p>
+</section>
+
+<footer>
+  © 2025 Raagamithra · UI/UX & Tech Portfolio
+</footer>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); }); }, { threshold:0.2 });
+document.querySelectorAll('section, .expand-card').forEach(el => observer.observe(el));
+
+// Toggle expand
+function toggleDetail(id){ const e=document.getElementById(id); e.style.display=(e.style.display==='block'?'none':'block'); }
+
+// Tech background animation
+const canvas=document.getElementById('tech-bg'); const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+let particles=[]; for(let i=0;i<200;i++){ particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,vx:(Math.random()-0.5)*0.7,vy:(Math.random()-0.5)*0.7}); }
+function animate(){ ctx.fillStyle='#0f0f0f'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.strokeStyle='#60a5fa33';
+particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle='#60a5fa'; ctx.fill(); ctx.closePath(); p.x+=p.vx; p.y+=p.vy;
+if(p.x>canvas.width)p.x=0;if(p.x<0)p.x=canvas.width;if(p.y>canvas.height)p.y=0;if(p.y<0)p.y=canvas.height; }); requestAnimationFrame(animate); }
+animate();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
+</script>
+
+</body>
+</html>
