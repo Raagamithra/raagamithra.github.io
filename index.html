@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Raagamithra | UI/UX Portfolio</title>
+<title>Raagamithra | UI/UX & Tech Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Icons -->
@@ -10,28 +10,23 @@
 
 <style>
 /* ===== RESET ===== */
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; transition: all 0.3s ease; }
-body { font-family: "Segoe UI", sans-serif; color: #fff; background: radial-gradient(circle at top, #312e81, #020617); }
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { font-family: "Segoe UI", sans-serif; color: #fff; background: #0f0f0f; overflow-x: hidden; }
 
-/* 🌌 STARS BACKGROUND */
-body::after {
-  content: "";
+/* ===== TECH BACKGROUND ===== */
+#tech-bg {
   position: fixed;
   inset: 0;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%, white, transparent),
-    radial-gradient(1px 1px at 80% 40%, white, transparent),
-    radial-gradient(2px 2px at 60% 70%, white, transparent);
-  animation: stars 20s linear infinite;
   z-index: -1;
+  background: #0f0f0f;
 }
-@keyframes stars { from { transform: translateY(0); } to { transform: translateY(-300px); } }
+canvas { display: block; width: 100%; height: 100%; }
 
 /* ===== NAVBAR ===== */
 nav {
   position: sticky;
   top: 0;
-  background: rgba(2,6,23,0.8);
+  background: rgba(0,0,0,0.8);
   backdrop-filter: blur(10px);
   padding: 15px 40px;
   display: flex;
@@ -39,93 +34,79 @@ nav {
   align-items: center;
   z-index: 100;
 }
-nav a { color: #93c5fd; margin-left: 20px; text-decoration: none; font-weight: 500; }
+nav a { color: #60a5fa; margin-left: 20px; text-decoration: none; font-weight: 500; display: flex; align-items: center; }
+nav a i { margin-right: 8px; }
 nav a:hover { color: #fff; }
-#theme-toggle { cursor: pointer; font-size: 1.2rem; margin-left: 20px; }
-
-/* ===== SECTION ===== */
-section { padding: 90px 20px; max-width: 1100px; margin: auto; }
-h2 { margin-bottom: 15px; color: #bfdbfe; }
-i { color: #60a5fa; margin-right: 8px; }
-li { margin-bottom: 8px; }
 
 /* ===== HERO ===== */
-.hero { text-align: center; }
-.hero img {
-  width: 170px; height: 170px; border-radius: 50%; border: 4px solid #60a5fa; margin-bottom: 20px;
-  transform: scale(0.8); opacity: 0;
-  transition: all 0.8s ease;
-}
-.hero h1 { font-size: 42px; transform: translateY(40px); opacity: 0; transition: all 0.8s ease; }
-.hero p { color: #bfdbfe; margin-top: 10px; font-size: 18px; transform: translateY(40px); opacity: 0; transition: all 0.8s ease; }
+.hero { text-align: center; padding: 120px 20px 60px; }
+.hero img { width: 180px; height: 180px; border-radius: 12px; border: 4px solid #60a5fa; margin-bottom: 20px; }
+.hero h1 { font-size: 42px; margin-bottom: 10px; }
+.hero p { color: #bfdbfe; font-size: 18px; max-width: 700px; margin: auto; line-height: 1.6; }
 
-/* ===== GLASS CARD ===== */
-.card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 30px;
-  margin-top: 30px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
+/* ===== SECTION ===== */
+section { padding: 80px 20px; max-width: 1100px; margin: auto; opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
+section.show { opacity:1; transform: translateY(0); }
+
+/* ===== CARDS ===== */
+.card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; padding: 30px; margin-top: 30px; }
+.card h2 { color: #60a5fa; margin-bottom: 15px; }
+.card p, .card li { color: #c7d2fe; }
 
 /* ===== GRID ===== */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-.grid p { background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; display: flex; align-items: center; cursor: pointer; transition: 0.3s; }
-.grid p:hover { background: #60a5fa33; transform: translateY(-5px); }
+.grid p, .grid li { background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; }
 
 /* ===== PROJECT CARDS ===== */
 .project-card {
   background: rgba(255,255,255,0.05);
   padding: 20px;
   border-radius: 16px;
-  transition: transform 0.3s, background 0.3s;
+  margin-bottom: 15px;
   cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
-.project-card:hover {
-  transform: translateY(-8px);
-  background: #60a5fa33;
-}
+.project-card:hover { transform: translateY(-6px); background: #60a5fa33; }
+.project-detail { display:none; margin-top:10px; padding:15px; background:#111; border-radius:12px; }
 
 /* ===== FOOTER ===== */
-footer { text-align: center; padding: 30px; color: #c7d2fe; }
+footer { text-align:center; padding:30px; color:#c7d2fe; }
 
 /* ===== DARK MODE ===== */
-body.dark { background: radial-gradient(circle at top, #111, #000); }
-body.dark .card { background: rgba(255,255,255,0.05); }
-body.dark .grid p { background: rgba(255,255,255,0.02); }
-body.dark .project-card:hover { background: #60a5fa22; }
+body.dark { background: #050505; }
+body.dark .card { background: rgba(255,255,255,0.03); }
+body.dark .grid p, body.dark .project-card { background: rgba(255,255,255,0.02); }
+
+/* ===== BUTTONS ===== */
+button { cursor:pointer; background:#60a5fa; border:none; padding:8px 12px; border-radius:8px; color:#fff; transition:0.3s; }
+button:hover { background:#3b82f6; }
 
 /* ===== ANIMATIONS ===== */
-.show { opacity: 1 !important; transform: translateY(0) !important; }
+.show { opacity:1 !important; transform: translateY(0) !important; }
 </style>
 </head>
-
 <body>
+
+<canvas id="tech-bg"></canvas>
 
 <!-- NAVBAR -->
 <nav>
   <strong>Raagamithra</strong>
   <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#tools">Tools</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <i id="theme-toggle" class="fa-solid fa-moon"></i>
+    <a href="#home"><i class="fa-solid fa-house"></i>Home</a>
+    <a href="#about"><i class="fa-solid fa-user"></i>About</a>
+    <a href="#skills"><i class="fa-solid fa-star"></i>Skills</a>
+    <a href="#projects"><i class="fa-solid fa-diagram-project"></i>Projects</a>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i>Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section id="home" class="hero">
   <img src="profile.jpg">
   <h1>R. Raagamithra</h1>
   <p>
-    <i class="fa-solid fa-pen-nib"></i> UI/UX Designer |
-    <i class="fa-solid fa-laptop-code"></i> Developer |
-    <i class="fa-solid fa-chart-line"></i> Data Analytics
+    I am an aspiring IT professional with a strong passion for UI/UX design, data analytics, and web development. My goal is to create innovative digital experiences that solve real-world problems and enhance user satisfaction. I also possess leadership skills, excellent communication, and a strong foundation in problem-solving.
   </p>
   <p><a href="Raagamithra_Resume.pdf" download style="color:#60a5fa; text-decoration:none; font-weight:500;">
     <i class="fa-solid fa-download"></i> Download Resume
@@ -133,97 +114,153 @@ body.dark .project-card:hover { background: #60a5fa22; }
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="card">
-    <h2><i class="fa-solid fa-user"></i> About Me</h2>
-    <p>
-      Aspiring IT professional passionate about UI/UX design and building
-      intuitive digital experiences. Strong foundation in design thinking,
-      analytics, and problem solving with leadership skills.
-    </p>
-  </div>
+<section id="about" class="card">
+  <h2><i class="fa-solid fa-user"></i> About Me</h2>
+  <p>
+    [Insert detailed About Me from resume here — include academic background, achievements, interests, and personal story.]
+  </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
   <div class="card">
-    <h2><i class="fa-solid fa-star"></i> Skills</h2>
+    <h2><i class="fa-solid fa-star"></i> Soft Skills</h2>
     <div class="grid">
-      <ul>
-        <li><i class="fa-solid fa-layer-group"></i> UI/UX Design</li>
-        <li><i class="fa-solid fa-users"></i> Leadership</li>
-        <li><i class="fa-solid fa-comments"></i> Communication</li>
-      </ul>
-      <ul>
-        <li><i class="fa-solid fa-brain"></i> Problem Solving</li>
-        <li><i class="fa-solid fa-lightbulb"></i> Creativity</li>
-        <li><i class="fa-solid fa-clock"></i> Time Management</li>
-      </ul>
+      <p><i class="fa-solid fa-users"></i> Leadership</p>
+      <p><i class="fa-solid fa-comments"></i> Communication</p>
+      <p><i class="fa-solid fa-brain"></i> Problem Solving</p>
+      <p><i class="fa-solid fa-lightbulb"></i> Creativity</p>
+      <p><i class="fa-solid fa-clock"></i> Time Management</p>
     </div>
   </div>
-</section>
 
-<!-- TOOLS -->
-<section id="tools">
-  <div class="card">
-    <h2><i class="fa-solid fa-screwdriver-wrench"></i> UI / UX Tools</h2>
+  <div class="card" style="margin-top:30px;">
+    <h2><i class="fa-solid fa-laptop-code"></i> Technical Skills</h2>
     <div class="grid">
-      <p><i class="fa-brands fa-figma"></i> Figma</p>
-      <p><i class="fa-solid fa-pen-nib"></i> Adobe XD</p>
-      <p><i class="fa-solid fa-palette"></i> Canva</p>
-      <p><i class="fa-solid fa-vector-square"></i> Wireframing</p>
-      <p><i class="fa-solid fa-users-gear"></i> User Research</p>
+      <p><i class="fa-brands fa-python"></i> Python</p>
+      <p><i class="fa-brands fa-java"></i> Java</p>
+      <p><i class="fa-solid fa-database"></i> SQL</p>
+      <p><i class="fa-solid fa-code"></i> HTML / CSS / JS</p>
+      <p><i class="fa-solid fa-pen-nib"></i> UI/UX Design Tools</p>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="card">
-    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-    <div class="grid">
-      <div class="project-card">Movie Data Analysis Project</div>
-      <div class="project-card">Weather App UI Design</div>
-      <div class="project-card">College Sign-In Form UI</div>
-      <div class="project-card">Mobile App UI Design</div>
+<section id="projects" class="card">
+  <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+
+  <div class="project-card" onclick="toggleDetail('proj1')">
+    <i class="fa-solid fa-film"></i> Movie Data Analysis
+    <div class="project-detail" id="proj1">
+      Analysis of movie datasets using Python to find trends, ratings, and insights. Tools: Python, Pandas, Matplotlib.
+    </div>
+  </div>
+
+  <div class="project-card" onclick="toggleDetail('proj2')">
+    <i class="fa-solid fa-cloud-sun"></i> Weather App UI Design
+    <div class="project-detail" id="proj2">
+      Designed an interactive weather app UI prototype. Tools: Figma, Adobe XD.
+    </div>
+  </div>
+
+  <div class="project-card" onclick="toggleDetail('proj3')">
+    <i class="fa-solid fa-id-card"></i> College Sign-In Form UI
+    <div class="project-detail" id="proj3">
+      Built a clean and intuitive sign-in form UI for college events. Tools: Figma, Canva.
+    </div>
+  </div>
+
+  <div class="project-card" onclick="toggleDetail('proj4')">
+    <i class="fa-solid fa-mobile-screen"></i> Mobile App UI Design
+    <div class="project-detail" id="proj4">
+      Mobile app interface design with user-friendly navigation. Tools: Figma, Wireframing.
+    </div>
+  </div>
+
+  <div class="project-card" onclick="toggleDetail('proj5')">
+    <i class="fa-solid fa-leaf"></i> Bio-Sponges from Temple Waste Flowers
+    <div class="project-detail" id="proj5">
+      Eco-friendly project converting temple flower waste into biodegradable sponges. Tools: Research, Experimentation.
+    </div>
+  </div>
+
+  <div class="project-card" onclick="toggleDetail('proj6')">
+    <i class="fa-solid fa-briefcase"></i> Internship
+    <div class="project-detail" id="proj6">
+      Currently working as a Green Intern, focusing on sustainable tech practices and UI/UX projects.
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="card">
-    <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
-    <p><i class="fa-solid fa-envelope"></i> raagamithra3@gmail.com</p>
-    <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
-  </div>
+<section id="contact" class="card">
+  <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
+  <p><i class="fa-solid fa-envelope"></i> raagamithra3@gmail.com</p>
+  <p><i class="fa-solid fa-location-dot"></i> Chennai, India</p>
+  <p><i class="fa-brands fa-github"></i> <a href="https://github.com/raagamithra" style="color:#60a5fa;text-decoration:none;">GitHub</a></p>
+  <p><i class="fa-brands fa-linkedin"></i> <a href="#" style="color:#60a5fa;text-decoration:none;">LinkedIn</a></p>
 </section>
 
 <footer>
-  © 2025 Raagamithra · UI/UX Portfolio
+  © 2025 Raagamithra · UI/UX & Tech Portfolio
 </footer>
 
 <script>
-// ===== DARK / LIGHT TOGGLE =====
-const toggle = document.getElementById("theme-toggle");
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  toggle.classList.toggle("fa-moon");
-  toggle.classList.toggle("fa-sun");
-});
-
-// ===== SCROLL REVEAL =====
+// ===== SCROLL ANIMATION =====
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+    if(entry.isIntersecting) entry.target.classList.add('show');
   });
 }, { threshold: 0.2 });
+document.querySelectorAll('section, .project-card').forEach(el => observer.observe(el));
 
-document.querySelectorAll('.card, .hero img, .hero h1, .hero p, .project-card').forEach(el => {
-  observer.observe(el);
-});
+// ===== PROJECT TOGGLE =====
+function toggleDetail(id){
+  const elem = document.getElementById(id);
+  elem.style.display = elem.style.display === 'block' ? 'none' : 'block';
+}
+
+// ===== TECH BACKGROUND CANVAS =====
+const canvas = document.getElementById('tech-bg');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<150;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2+1,
+    vx: (Math.random()-0.5)*0.5,
+    vy: (Math.random()-0.5)*0.5
+  });
+}
+
+function animate(){
+  ctx.fillStyle = '#0f0f0f';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.strokeStyle = '#60a5fa33';
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle = '#60a5fa';
+    ctx.fill();
+    ctx.closePath();
+    p.x += p.vx;
+    p.y += p.vy;
+    if(p.x>canvas.width)p.x=0;
+    if(p.x<0)p.x=canvas.width;
+    if(p.y>canvas.height)p.y=0;
+    if(p.y<0)p.y=canvas.height;
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ===== RESIZE =====
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
 </script>
 
 </body>
